@@ -25,8 +25,7 @@ if __name__ == "__main__":
             # Remove image if not word of the day
             # print('{} incorrect, removed.'.format(path+f))
             os.remove(path+f)
-        # else:
-        #     print('{} was correct! image kept'.format(path+f))
-        #     # Move file to 'correct images' directory!
-        #     os.rename(path+f, correct_path+f)
-        #     print('{} was a codeword image! moved to {}'.format(path+f, '../'+correct_path+cur_date+f))
+        else:
+            # Move file to 'correct images' directory!
+            print('{} was correct! image kept'.format(path+f))
+            os.rename(path+f, correct_path+f)
