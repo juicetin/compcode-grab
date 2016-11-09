@@ -6,6 +6,8 @@ import os
 import pickle
 from datetime import datetime
 
+from word_extraction import get_word
+
 if __name__ == "__main__":
 
     # Check if classifier has been saved to disk yet
@@ -29,3 +31,5 @@ if __name__ == "__main__":
             # Move file to 'correct images' directory!
             print('{} was correct! image kept'.format(path+f))
             os.rename(path+f, correct_path+f)
+            word = get_word(correct_path+f)
+            print('Word for {} was: {}'.format(cur_date, word))

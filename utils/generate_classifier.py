@@ -30,7 +30,7 @@ def generate_classifier():
     incorrect_imgs, incorrect_labels = gen_img_and_labels(incorrect_imgs, 0)
     
     # merge image lists
-    skip = 4995
+    skip = 5000
     imgs = np.concatenate((correct_imgs, incorrect_imgs))
     imgs = reduce_img_features(imgs, skip)
     labels = np.concatenate((correct_labels, incorrect_labels))
