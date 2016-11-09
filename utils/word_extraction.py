@@ -29,6 +29,9 @@ def monochrome(im):
 
 def retrieve_word_from_processed_image(im):
     word = image_to_string(im)
+    # TODO when this fails, error should be caught, and 
+    # original supposedly correct image instead put into
+    # the incorrect pile
     return regexp_search("[a-zA-Z]+", word).group()
 
 def get_word(img_path):
