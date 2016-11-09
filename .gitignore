@@ -1,3 +1,4 @@
 imgs/**
 .*.sw*
 **/*.pyc
+correct_imgs/**
