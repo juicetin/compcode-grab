@@ -6,6 +6,8 @@ import os
 import pickle
 from datetime import datetime
 
+from mailer import email_notify_codeword
+
 from word_extraction import get_word
 
 if __name__ == "__main__":
@@ -33,3 +35,5 @@ if __name__ == "__main__":
             os.rename(path+f, correct_path+f)
             word = get_word(correct_path+f)
             print('Word for {} was: {}'.format(cur_date, word))
+
+            email_notify_codeword(word, correct_path+f)
