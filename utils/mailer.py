@@ -5,6 +5,7 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
+import sys
 
 # load_dotenv(find_dotenv())
 
@@ -40,7 +41,11 @@ def email_notify_codeword(codeword, img_path=None):
     # Send message
     s.ehlo()
     s.starttls()
-    s.login(os.environ.get('EMAIL'), os.environ.get('EMAIL_PWD'))
+    try:
+        s.login(os.environ.get('EMAIL'), os.environ.get('EMAIL_PWD'))
+    except AttributeError:
+        print('You probably forgot to include EMAIL and EMAIL_PWD in environment vars')
+        sys.exit(1)
     s.send_message(msg)
     s.quit()
 

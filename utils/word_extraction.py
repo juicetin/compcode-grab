@@ -3,6 +3,7 @@ from scipy.misc import imsave
 import numpy as np
 from pytesseract import image_to_string
 from re import search as regexp_search
+import sys
 
 import pdb
 
@@ -47,7 +48,10 @@ def retrieve_word_from_processed_image(im):
     # TODO when this fails, error should be caught, and 
     # original supposedly correct image instead put into
     # the incorrect pile
-    return regexp_search("[a-zA-Z]+", word).group()
+    try:
+        return regexp_search("[a-zA-Z]+", word).group()
+    except AttributeError:
+        return None
 
 def get_word(img_path):
     """
@@ -63,4 +67,6 @@ def get_word(img_path):
     imsave('bw_tmp.png', bw_im)
 
     im = Image.open('bw_tmp.png')
-    return retrieve_word_from_processed_image(im)
+    word = retrieve_word_from_processed_image(im)
+    if word == None:
+        raise ValueError('No word found in image: [{}]. Most likely incorrect image classification.'.format(img_path))
