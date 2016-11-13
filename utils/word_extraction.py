@@ -71,3 +71,6 @@ def get_word(img_path):
     if word == None:
         error_str = 'No word found in image: [{}]. Most likely incorrect image classification.'.format(img_path)
         raise ValueError(error_str)
+
+    return word
+

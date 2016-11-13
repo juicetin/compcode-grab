@@ -49,5 +49,3 @@ def email_notify_codeword(codeword, img_path=None):
     s.send_message(msg)
     s.quit()
     print('Message sent successfully for codeword: [{}], with image path :[{}]!'.format(codeword, img_path))
-
-    # print('Message:\n{}\nsent!'.format(msg))
