@@ -15,7 +15,7 @@ def email_notify_codeword(codeword, img_path=None):
 
     # Start server connection
     s = smtplib.SMTP('smtp.gmail.com:587')
-    recipients = ['justingling@gmail.com']
+    recipients = ['justingling@gmail.com', 'chowshingmei@gmail.com']
 
     cur_date = datetime.now().strftime('%a-%b-%d')
     msg = MIMEMultipart()

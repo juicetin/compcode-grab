@@ -27,8 +27,9 @@ if __name__ == "__main__":
 
         if knn.predict(cur_img) != 1:
             # Remove image if not word of the day
-            # print('{} incorrect, removed.'.format(path+f))
+            # TODO temporarily to see if correct images are being missed
             os.remove(path+f)
+            pass
         else:
             # Move file to 'correct images' directory!
             print('{} was correct! image kept'.format(path+f))
