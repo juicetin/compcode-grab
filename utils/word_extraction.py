@@ -69,4 +69,5 @@ def get_word(img_path):
     im = Image.open('bw_tmp.png')
     word = retrieve_word_from_processed_image(im)
     if word == None:
-        raise ValueError('No word found in image: [{}]. Most likely incorrect image classification.'.format(img_path))
+        error_str = 'No word found in image: [{}]. Most likely incorrect image classification.'.format(img_path)
+        raise ValueError(error_str)
