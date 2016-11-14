@@ -7,15 +7,13 @@ from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 import sys
 
-# load_dotenv(find_dotenv())
-
 def email_notify_codeword(codeword, img_path=None):
     EMAIL = os.environ.get('EMAIL')
     PWD = os.environ.get('EMAIL_PWD')
 
     # Start server connection
     s = smtplib.SMTP('smtp.gmail.com:587')
-    recipients = ['justingling@gmail.com', 'chowshingmei@gmail.com']
+    recipients = os.environ.get('NOTIFY_EMAILS').split(',')
 
     cur_date = datetime.now().strftime('%a-%b-%d')
     msg = MIMEMultipart()
@@ -32,7 +30,7 @@ def email_notify_codeword(codeword, img_path=None):
         msg.attach(image)
 
     # Set other message parameters
-    sender = 'justingling@gmail.com'
+    sender = EMAIL
     subject = 'Ch7 Cash Cow codeword'
     msg['Subject'] = subject
     msg['From'] = sender

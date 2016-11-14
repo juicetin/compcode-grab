@@ -14,6 +14,8 @@ Future (maybe) functionality:
 
 ## Steps to run
 1. Create 'imgs' directory in project root to hold temporary images (non-codeword image are all deleted every several seconds)
-2. (Need to fix this) change the emails in utils/mailer.py to ones you want the codeword to be sent to
-3. Run the utils/montior_new_imgs.sh script with two environment variables: EMAIL=<your gmail> and EMAIL_PWD=<your gmail password>
+2. Make a copy of .env.example as .env, and populate the environment variables
+    * EMAIL, EMAIL_PWD are your gmail and gmail password for the account to send *from*
+    * NOTIFY_EMAILS is a comma-separated list of emails you want to email the codeword for the day to
+3. Run the utils/montior_new_imgs.sh script 
 4. Run utils/stream.sh to start capturing periodic screenshots from the channel 7 stream!

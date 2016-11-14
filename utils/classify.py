@@ -5,12 +5,14 @@ from scipy import misc
 import os
 import pickle
 from datetime import datetime
+from dotenv import load_dotenv, find_dotenv
 
 from mailer import email_notify_codeword
 
 from word_extraction import get_word
 
 if __name__ == "__main__":
+    load_dotenv(find_dotenv())
 
     # Check if classifier has been saved to disk yet
     try:
